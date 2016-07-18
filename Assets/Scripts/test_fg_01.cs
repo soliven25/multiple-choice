@@ -59,11 +59,11 @@ public class test_fg_01 : MonoBehaviour {
 					 		tPosition.z = -1f;
 
 						}
-					}
-
-					Destroy(Instantiate(circle, tPosition, transform.rotation), 2.0f);
 					
-					moveProblem();
+						Destroy(Instantiate(circle, tPosition, transform.rotation), 2.0f);
+					
+						moveProblem();
+					}
 			}
 		}
 	}
