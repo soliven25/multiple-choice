@@ -5,6 +5,7 @@ using System.Collections;
 
 public class Constants{
 	public const int SCREEN_DIVISION_FIVE = 5;
+	public const int MOVE_AWAY_DISTANCE = 20;
 }
 public class test_fg_01 : MonoBehaviour {
 
@@ -65,7 +66,7 @@ public class test_fg_01 : MonoBehaviour {
 					Destroy(Instantiate(circle, tPosition, transform.rotation), 2.0f);
 					
 					moveProblem();
-				}
+			}
 		}
 	}
 
@@ -76,6 +77,6 @@ public class test_fg_01 : MonoBehaviour {
 	void invokeTransform(){
 		Transform transformTarget ;
 		transformTarget = GameObject.Find("test_fg_01").transform;
-		transformTarget.Translate(Vector3.right*20);
+		transformTarget.Translate(Vector3.right*Constants.MOVE_AWAY_DISTANCE);
 	}
 }
