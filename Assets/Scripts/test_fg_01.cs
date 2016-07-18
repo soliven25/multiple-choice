@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using ProgressBar;
 
 
 public class Constants{
@@ -12,9 +13,26 @@ public class test_fg_01 : MonoBehaviour {
 	public GameObject circle;
 	public int testPaperCounter;
 
+	ProgressBarBehaviour BarBehaviour;
+    float UpdateDelay = 2f;
+
 	// Use this for initialization
 	void Start () {
 		testPaperCounter = 0;
+
+		//BarBehaviour = GetComponent<ProgressBarBehaviour>();
+		//BarBehaviour.Value = 80f;
+
+		BarBehaviour = GameObject.Find("ProgressBarLabelInside").GetComponent<ProgressBarBehaviour>();
+		BarBehaviour.Value = 80f;
+
+        //while (true)
+        //{
+        //    yield return new WaitForSeconds(UpdateDelay);
+		//	Debug.Log("START after yield");
+        //    BarBehaviour.Value = Random.value * 100;
+        //    print("new value: " + BarBehaviour.Value);
+       // }
 	}
 	
 	// Update is called once per frame
