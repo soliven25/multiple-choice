@@ -9,14 +9,12 @@ public class Constants{
 }
 public class test_fg_01 : MonoBehaviour {
 
-	public Vector2 touchPos;
-	public Transform touchTrans;
 	public GameObject circle;
-	public Text debugText;
+	public int testPaperCounter;
 
 	// Use this for initialization
 	void Start () {
-
+		testPaperCounter = 0;
 	}
 	
 	// Update is called once per frame
@@ -76,7 +74,9 @@ public class test_fg_01 : MonoBehaviour {
 
 	void invokeTransform(){
 		Transform transformTarget ;
-		transformTarget = GameObject.Find("test_fg_01").transform;
+		transformTarget = GameObject.Find("test_fg_" + testPaperCounter).transform;
 		transformTarget.Translate(Vector3.right*Constants.MOVE_AWAY_DISTANCE);
+
+		testPaperCounter++;
 	}
 }
