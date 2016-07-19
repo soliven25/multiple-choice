@@ -110,8 +110,9 @@ namespace ProgressBar
 
         void OnEnable()
         {
+            Debug.Log("Progress Bar OnEnagle " + FillerInfo.MaxWidth);
             //We set the Filler size to zero at the start.
-            SetFillerSize(0);
+            SetFillerSize(0);   // SKC on160718 change the value from 0 to 100 for test --> 10%?
             //We initialize m_Value
             m_Value = new ProgressValue(0, FillerInfo.MaxWidth);
         }
@@ -124,7 +125,9 @@ namespace ProgressBar
                 //The difference between the two values.
                 float Dvalue = m_Value.AsFloat - TransitoryValue;
 
-                //If the difference is positive:
+                //Debug.Log("TransitoryValue is " + TransitoryValue);
+                Debug.Log("m_Value.AsFloat is " + m_Value.AsFloat);  // SKC on160718 it's 1018
+                Debug.Log("m_FillerInfo.MaxWidth is " + m_FillerInfo.MaxWidth);  // SKC on160718 it's 1018
                 //  TransitoryValue needs to be incremented.
                 if (Dvalue > 0)
                 {
@@ -168,7 +171,7 @@ namespace ProgressBar
         public void SetFillerSize(float Width)
         {
             if (m_AttachedText)
-                m_AttachedText.text = Mathf.Round(Width / FillerInfo.MaxWidth * 100).ToString() + " %";
+                m_AttachedText.text = Mathf.Round(Width / FillerInfo.MaxWidth * 100).ToString() + " HH";
 
             m_FillRect.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, XOffset, Width);
         }
@@ -190,6 +193,7 @@ namespace ProgressBar
         /// </summary>
         public void OnComplete()
         {
+            Debug.Log("OnComplete is called");
             OnCompleteMethods.Invoke();
         }
         
